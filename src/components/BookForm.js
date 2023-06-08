@@ -1,37 +1,30 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function BookForm({ onAdd }) {
+function BookForm({ onSubmit }) {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
 
-  const handleAddBook = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    onAdd({ title, author });
+    if (title.trim() === '' || author.trim() === '') {
+      return;
+    }
+    onSubmit({ title, author });
     setTitle('');
     setAuthor('');
   };
 
   return (
-    <form onSubmit={handleAddBook}>
+    <form onSubmit={handleSubmit}>
       <h3>Add a Book</h3>
       <label htmlFor="title">
-        <input
-          type="text"
-          id="title"
-          placeholder="Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
+        Title:
+        <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
       </label>
       <label htmlFor="author">
-        <input
-          type="text"
-          id="author"
-          placeholder="Author"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-        />
+        Author:
+        <input type="text" id="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
       </label>
       <button type="submit">Add Book</button>
     </form>
@@ -39,7 +32,7 @@ function BookForm({ onAdd }) {
 }
 
 BookForm.propTypes = {
-  onAdd: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default BookForm;
