@@ -18,7 +18,7 @@ BookList.propTypes = {
       id: PropTypes.string,
       title: PropTypes.string,
       author: PropTypes.string,
-    })
+    }),
   ).isRequired,
   onDelete: PropTypes.func.isRequired,
 };
