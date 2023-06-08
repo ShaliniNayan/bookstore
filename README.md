@@ -75,10 +75,7 @@ After you're finished please remove all the comments and instructions!
 
 <details>
   <summary>Client</summary>
-  <ul>
-    <li><a href="https://javascript.info/">index.js</a>Javascript</li>
-  </ul>
-
+  
   <ul>
     <li><a href="https://react.org/">react.js</a>React</li>
   </ul>
@@ -180,7 +177,9 @@ github pages
 
 ## 🤝 Contributing <a name="contributing"></a>
 
-Contributions to this project are welcome. To contribute, please fork this repository and submit a pull request with your changes.
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -218,6 +217,6 @@ I would like to thank microverse community and my coding partner for their dedic
 
 ## 📝 License <a name="license"></a>
 
-This project is licensed under the [MIT](./LICENSE.md) licensed.
+This project is licensed under the [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
