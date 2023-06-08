@@ -75,9 +75,9 @@ After you're finished please remove all the comments and instructions!
 
 <details>
   <summary>Client</summary>
-  
+
   <ul>
-    <li><a href="https://react.org/">react.js</a>React</li>
+    <li><a href="https://react.org/">react.js</a></li>
   </ul>
 </details>
 
