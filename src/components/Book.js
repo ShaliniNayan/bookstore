@@ -7,22 +7,22 @@ function Book({ book, onDelete }) {
       <h3>{book.title}</h3>
       <p>
         Author:
+        {' '}
         {book.author}
       </p>
       <p>
         Price:
+        {' '}
         {book.price}
       </p>
-      <button type="button" onClick={() => onDelete(book.id)}>
-        Delete
-      </button>
+      <button type="button" onClick={() => onDelete(book.id)}>Delete</button>
     </div>
   );
 }
 
 Book.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,

@@ -1,10 +1,9 @@
 import React from 'react';
+import Books from './Books';
 
 function HomePage() {
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <Books />
   );
 }
 

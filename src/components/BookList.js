@@ -15,10 +15,10 @@ function BookList({ books, onDelete }) {
 BookList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
+      id: PropTypes.string,
+      title: PropTypes.string,
+      author: PropTypes.string,
+      price: PropTypes.number,
     }),
   ).isRequired,
   onDelete: PropTypes.func.isRequired,

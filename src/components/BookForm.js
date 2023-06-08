@@ -1,41 +1,45 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function BookForm({ onSubmit }) {
+function BookForm({ onAdd }) {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [price, setPrice] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleAddBook = (e) => {
     e.preventDefault();
-    onSubmit({ title, author, price });
+    onAdd({ title, author });
     setTitle('');
     setAuthor('');
-    setPrice('');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleAddBook}>
       <h3>Add a Book</h3>
       <label htmlFor="title">
-        Title:
-        <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} />
+        <input
+          type="text"
+          id="title"
+          placeholder="Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
       </label>
       <label htmlFor="author">
-        Author:
-        <input type="text" id="author" value={author} onChange={(e) => setAuthor(e.target.value)} />
+        <input
+          type="text"
+          id="author"
+          placeholder="Author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
       </label>
-      <label htmlFor="price">
-        Price:
-        <input type="text" id="price" value={price} onChange={(e) => setPrice(e.target.value)} />
-      </label>
-      <button type="submit">Submit</button>
+      <button type="submit">Add Book</button>
     </form>
   );
 }
 
 BookForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onAdd: PropTypes.func.isRequired,
 };
 
 export default BookForm;
