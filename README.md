@@ -88,11 +88,11 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-> Math-Magician provides the following features:
+> Bookstore provides the following features:
 
-Addition, subtraction, multiplication, and division of two numbers.
-Clearing the input and output fields.
-Displaying the result of the calculation.
+Display a list of books
+Add a book
+Remove a selected book
 
 <!-- LIVE DEMO -->
 
@@ -114,7 +114,7 @@ In order to run this project you need:
 
 ### Installation
 
-To get started with Math-Magician, follow these steps:
+To get started with Bookstore, follow these steps:
 
 ```sh
 Clone the repository to your local machine.
