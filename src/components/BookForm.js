@@ -24,25 +24,25 @@ function BookForm({ onSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
       <h3>Add a Book</h3>
-      <label htmlFor='title'>
+      <label htmlFor="title">
         Title:
         <input
-          type='text'
-          id='title'
+          type="text"
+          id="title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
       </label>
-      <label htmlFor='author'>
+      <label htmlFor="author">
         Author:
         <input
-          type='text'
-          id='author'
+          type="text"
+          id="author"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
       </label>
-      <button type='submit'>Add Book</button>
+      <button type="submit">Add Book</button>
     </form>
   );
 }
