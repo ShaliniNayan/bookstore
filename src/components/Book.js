@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Book({ book, onDelete }) {
+  const handleDelete = () => {
+    onDelete(book.item_id);
+  };
+
   return (
     <div>
       <h3>{book.title}</h3>
@@ -9,8 +13,12 @@ function Book({ book, onDelete }) {
         Author:
         {book.author}
       </p>
-      <button type="button" onClick={() => onDelete(book.id)}>
-        Delete
+      <p>
+        Category:
+        {book.category}
+      </p>
+      <button type="button" onClick={handleDelete}>
+        Remove
       </button>
     </div>
   );
@@ -18,10 +26,10 @@ function Book({ book, onDelete }) {
 
 Book.propTypes = {
   book: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    item_id: PropTypes.string,
+    title: PropTypes.string,
+    author: PropTypes.string,
+    category: PropTypes.string,
   }).isRequired,
   onDelete: PropTypes.func.isRequired,
 };
