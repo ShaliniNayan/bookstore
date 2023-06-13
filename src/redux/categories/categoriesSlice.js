@@ -8,7 +8,6 @@ const categoriesSlice = createSlice({
   name: 'categories',
   initialState,
   reducers: {
-    // This reducer checks the status and always returns "Under construction"
     checkStatus: (state) => {
       state.categories = ['Under construction'];
     },
