@@ -1,75 +1,66 @@
-import { createSlice, createAsyncThunk, isRejectedWithValue } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/cB7E2CfunO2lnuoy6kUA/books';
+const API_BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/';
 
-const initialState = {
-  books: [],
-  isLoading: false,
-  error: null,
-};
-
-export const getBooks = createAsyncThunk('books/getBooks', async () => {
-  try {
-    const response = await axios.get(url);
-    const booksArr = Object.keys(response.data).map((key) => ({
-      item_id: key,
-      ...response.data[key][0],
-    }));
-
-    return booksArr;
-  } catch (error) {
-    return isRejectedWithValue(error.message);
-  }
-});
-
-export const deleteBook = createAsyncThunk(
-  'books/removeBook',
-  async (bookId) => {
-    await axios.delete(`${url}/${bookId}`);
-    return bookId;
+export const fetchBooks = createAsyncThunk(
+  'books/fetchBooks',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        `${API_BASE_URL}cB7E2CfunO2lnuoy6kUA/books`,
+      );
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   },
 );
 
-export const postBooks = createAsyncThunk('books/postBooks', async (book) => {
-  try {
-    const result = await axios.post(url, book);
-    return result.data;
-  } catch (error) {
-    return isRejectedWithValue(error.message);
-  }
-});
-
-const bookSlice = createSlice({
-  name: 'books',
-  initialState,
-  reducers: {
-    addBook: (state, action) => {
-      state.books.push(action.payload);
-    },
-    removeBook: (state, action) => {
-      const bookId = action.payload;
-
-      state.books = state.books.filter((item) => item.item_id !== bookId);
-    },
+export const addBook = createAsyncThunk(
+  'books/addBook',
+  async (newBook, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(
+        `${API_BASE_URL}cB7E2CfunO2lnuoy6kUA/books`,
+        newBook,
+      );
+      return response.data;
+    } catch (error) {
+      console.log(error.response); // Log the error response
+      return rejectWithValue(error.message);
+    }
   },
+);
+
+export const removeBook = createAsyncThunk(
+  'books/removeBook',
+  async (itemId, { rejectWithValue }) => {
+    try {
+      await axios.delete(`${API_BASE_URL}cB7E2CfunO2lnuoy6kUA/books/${itemId}`);
+      return itemId;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+
+const booksSlice = createSlice({
+  name: 'books',
+  initialState: [],
+  reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getBooks.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
+      .addCase(fetchBooks.fulfilled, (state, action) => action.payload)
+      .addCase(addBook.fulfilled, (state, action) => {
+        state.push(action.payload);
       })
-      .addCase(getBooks.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.books = action.payload;
-        state.error = null;
-      })
-      .addCase(getBooks.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
+      .addCase(removeBook.fulfilled, (state, action) => {
+        state.filter((book) => book.item_id !== action.payload);
       });
   },
 });
 
-export const { addBook, removeBook } = bookSlice.actions;
-export default bookSlice.reducer;
+export const selectBooks = (state) => state.books;
+
+export default booksSlice.reducer;
