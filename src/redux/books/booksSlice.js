@@ -17,21 +17,44 @@ export const fetchBooks = createAsyncThunk(
   },
 );
 
-export const addBook = createAsyncThunk(
-  'books/addBook',
-  async (newBook, { rejectWithValue }) => {
-    try {
-      const response = await axios.post(
-        `${API_BASE_URL}cB7E2CfunO2lnuoy6kUA/books`,
-        newBook,
-      );
-      return response.data;
-    } catch (error) {
-      console.log(error.response); // Log the error response
-      return rejectWithValue(error.message);
+// export const addBook = createAsyncThunk(
+//   'books/addBook',
+//   async (newBook, { rejectWithValue }) => {
+//     try {
+//       const response = await axios(
+//         `${API_BASE_URL}cB7E2CfunO2lnuoy6kUA/books`,
+//         {
+//           method: 'POST',
+//           data: newBook,
+//         },
+//       );
+//       if (response.status === 201) {
+//         console.log(response.json());
+//       }
+//     } catch (error) {
+//       console.log(error.response); // Log the error response
+//       return rejectWithValue(error.message);
+//     }
+//   },
+// );
+
+export const addBook = createAsyncThunk('postBooks/postBook', async (book, thunkAPI) => {
+  try {
+    const resp = await axios(`${API_BASE_URL}cB7E2CfunO2lnuoy6kUA/books`, {
+      method: 'POST',
+      data: JSON.stringify(book),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    if (resp.status === 201) {
+      return null;
     }
-  },
-);
+    return null;
+  } catch (err) {
+    return thunkAPI.rejectWithValue('Failed to post book');
+  }
+});
 
 export const removeBook = createAsyncThunk(
   'books/removeBook',

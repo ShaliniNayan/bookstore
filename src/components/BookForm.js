@@ -7,7 +7,16 @@ const BookForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ title, author });
+    if (title.trim() === '' || author.trim() === '') {
+      return;
+    }
+    const itemId = Math.random().toString(36);
+    const newBook = {
+      item_id: itemId,
+      title,
+      author,
+    };
+    onSubmit(newBook);
     setTitle('');
     setAuthor('');
   };
