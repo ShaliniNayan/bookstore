@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import Book from './Book';
 
 const BookList = ({ books }) => {
-  const renderBooks = books.map((book) => {
-    if (book && book.item_id) {
-      return <Book key={book.item_id} book={book} />;
+  const renderBooks = Object.entries(books).map(([id, book]) => book.map((bookItem) => {
+    if (bookItem && id) {
+      return <Book key={id} book={bookItem} itemId={id} />;
     }
     return null;
-  });
+  }));
   return (
     <div>
       <h3>Book List</h3>
@@ -26,5 +26,4 @@ BookList.propTypes = {
     }),
   ).isRequired,
 };
-
 export default BookList;
