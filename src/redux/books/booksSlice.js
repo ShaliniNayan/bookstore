@@ -17,27 +17,6 @@ export const fetchBooks = createAsyncThunk(
   },
 );
 
-// export const addBook = createAsyncThunk(
-//   'books/addBook',
-//   async (newBook, { rejectWithValue }) => {
-//     try {
-//       const response = await axios(
-//         `${API_BASE_URL}cB7E2CfunO2lnuoy6kUA/books`,
-//         {
-//           method: 'POST',
-//           data: newBook,
-//         },
-//       );
-//       if (response.status === 201) {
-//         console.log(response.json());
-//       }
-//     } catch (error) {
-//       console.log(error.response); // Log the error response
-//       return rejectWithValue(error.message);
-//     }
-//   },
-// );
-
 export const addBook = createAsyncThunk('postBooks/postBook', async (book, thunkAPI) => {
   try {
     const resp = await axios(`${API_BASE_URL}cB7E2CfunO2lnuoy6kUA/books`, {
