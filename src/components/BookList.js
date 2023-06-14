@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import Book from './Book';
 
 const BookList = ({ books }) => {
-  const renderBooks = books.map((book) => (
-    <Book key={book.item_id} book={book} />
-  ));
-
+  const renderBooks = books.map((book) => {
+    if (book && book.item_id) {
+      return <Book key={book.item_id} book={book} />;
+    }
+    return null;
+  });
   return (
     <div>
       <h3>Book List</h3>
