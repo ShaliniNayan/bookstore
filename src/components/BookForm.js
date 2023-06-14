@@ -15,6 +15,7 @@ const BookForm = ({ onSubmit }) => {
       item_id: itemId,
       title,
       author,
+      category: 'fiction',
     };
     onSubmit(newBook);
     setTitle('');
