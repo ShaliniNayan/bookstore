@@ -1,34 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
 import Book from './Book';
 
-function BookList({ books }) {
-  const dispatch = useDispatch();
-
-  const handleDelete = (itemId) => {
-    dispatch(removeBook(itemId));
-  };
-
+const BookList = ({ books }) => {
+  const renderBooks = Object.entries(books).map(([id, book]) => book.map((bookItem) => {
+    if (bookItem && id) {
+      return <Book key={id} book={bookItem} itemId={id} />;
+    }
+    return null;
+  }));
   return (
     <div>
-      {books.map((book) => (
-        <Book key={book.item_id} book={book} onDelete={() => handleDelete(book.item_id)} />
-      ))}
+      <h3>Book List</h3>
+      {renderBooks}
     </div>
   );
-}
+};
 
 BookList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
-      item_id: PropTypes.string,
-      title: PropTypes.string,
-      author: PropTypes.string,
-      category: PropTypes.string,
+      item_id: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      author: PropTypes.string.isRequired,
     }),
   ).isRequired,
 };
-
 export default BookList;
