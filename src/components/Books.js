@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/booksSlice';
 import BookForm from './BookForm';
 import BookList from './BookList';
+import '../Styles/forms.css';
 
 const Books = () => {
   const books = useSelector((state) => state.books);
@@ -10,14 +11,17 @@ const Books = () => {
 
   const handleSubmit = (book) => {
     dispatch(addBook(book));
-  };
+  }; 
 
   return (
-    <div>
-      <h2>Books</h2>
-      <BookForm onSubmit={handleSubmit} />
+    <>
+      <hr className="form-hr" />
       <BookList books={books} />
-    </div>
+      <div className="addBook">
+        <h2>ADD NEW BOOK</h2>
+        <BookForm onSubmit={handleSubmit} />
+      </div>
+    </>
   );
 };
 

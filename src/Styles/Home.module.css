@@ -1,0 +1,19 @@
+/* home */
+.home {
+  margin-top: 100px;
+  align-self: center;
+}
+
+.welcome {
+  padding: 10px;
+  margin: 10px;
+}
+
+.welcome_text {
+  padding: 10px;
+  margin: 10px;
+  text-align: justify;
+  align-self: center;
+}
+
+/* end of  */

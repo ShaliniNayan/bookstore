@@ -11,7 +11,7 @@ const BookList = ({ books }) => {
   }));
   return (
     <div>
-      <h3>Book List</h3>
+      {/* <h3>Book List</h3> */}
       {renderBooks}
     </div>
   );
