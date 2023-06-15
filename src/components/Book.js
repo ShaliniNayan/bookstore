@@ -24,5 +24,6 @@ Book.propTypes = {
     author: PropTypes.string.isRequired,
     itemId: PropTypes.string.isRequired,
   }).isRequired,
+  itemId: PropTypes.string.isRequired,
 };
 export default Book;

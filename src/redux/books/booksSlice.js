@@ -29,6 +29,7 @@ export const addBook = createAsyncThunk(
         },
       });
       if (resp.status === 201) {
+        thunkAPI.dispatch(fetchBooks());
         return null;
       }
       return null;
@@ -40,9 +41,10 @@ export const addBook = createAsyncThunk(
 
 export const removeBook = createAsyncThunk(
   'books/removeBook',
-  async (itemId, { rejectWithValue }) => {
+  async (itemId, { rejectWithValue, dispatch }) => {
     try {
       await axios.delete(`${API_BASE_URL}cB7E2CfunO2lnuoy6kUA/books/${itemId}`);
+      dispatch(fetchBooks());
       return itemId;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -58,11 +60,9 @@ const booksSlice = createSlice({
     builder
       .addCase(fetchBooks.fulfilled, (state, action) => action.payload)
       .addCase(addBook.fulfilled, (state, action) => {
-        state.push(action.payload);
+        addBook(action.payload);
       })
-      .addCase(removeBook.fulfilled, (state, action) => {
-        state.filter((book) => book.item_id !== action.payload);
-      });
+      .addCase(removeBook.fulfilled, (state, action) => removeBook(action.payload));
   },
 });
 
