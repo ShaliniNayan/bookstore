@@ -35,5 +35,5 @@ code {
 #root {
   background-color: rgb(233, 232, 232);
   height: 100vh;
-  padding: 4rem;
+  width: 100vw;
 }

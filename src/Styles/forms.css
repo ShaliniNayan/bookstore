@@ -9,16 +9,6 @@
   border: solid 1px #e8e8e8;
 }
 
-h2 {
-  text-transform: uppercase;
-  font-size: 1.25rem;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  color: #888;
-}
-
 .author {
   min-width: 28rem;
   min-height: 2.813rem;

@@ -3,16 +3,6 @@
   border: solid 1px #e8e8e8;
 }
 
-h2 {
-  text-transform: uppercase;
-  font-size: 1.25rem;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  color: #888;
-}
-
 .add-book {
   display: flex;
   flex-direction: column;
@@ -37,10 +27,6 @@ h2 {
 .addBook {
   min-width: 11.5rem;
   min-height: 2.813rem;
-
-  /* background-color: #0290ff; */
-
-  /* color: #fff; */
   border: none;
   cursor: pointer;
   text-transform: uppercase;

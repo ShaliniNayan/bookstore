@@ -4,3 +4,13 @@
   display: flex;
   flex-direction: column;
 }
+
+h2 {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  color: #888;
+}
