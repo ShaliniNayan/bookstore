@@ -1,25 +1,20 @@
 .mainContent {
-  padding: 3rem;
+  list-style-type: none;
 }
 
-.displayedBooks {
+.displayBooks {
+  background: #fff;
   list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.75rem;
+  margin-bottom: 1rem;
 }
 
-/* .book-details {
-  font-family: 'RobotoSlab', sans-serif;
-  background-color: #fff;
-  padding: 0.45rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  box-shadow: 0 0 0.2rem;
-  justify-content: space-between;
-} */
+.book-details {
+  flex: 2;
+}
 
 .category {
   text-transform: uppercase;
@@ -36,9 +31,8 @@
 }
 
 .book-title {
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: bold;
-  text-transform: capitalize;
   color: #121212;
 }
 
@@ -58,14 +52,12 @@
 
 .btn-container {
   display: flex;
-  gap: 1rem;
   align-items: center;
   margin-left: -0.75rem;
 }
 
 .btn-container button {
-  width: 4.5rem;
-  height: 2rem;
+  padding: 0.4rem;
   color: #4386bf;
   outline: none;
   border: none;
@@ -73,6 +65,10 @@
   background-color: #fff;
   font-size: 0.685rem;
   text-transform: capitalize;
+}
+
+.btn-container button + button {
+  border-left: 2px solid #bbb8b8;
 }
 
 .btn-container button:hover {
@@ -92,6 +88,7 @@
 }
 
 .progress-percent {
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -110,8 +107,14 @@
   transform: rotate(240deg);
 }
 
+.line {
+  width: 3px;
+  height: 50px;
+  background-color: #ebe9e9;
+}
+
 .current-chapter-container {
-  margin-right: 5rem;
+  padding: 1rem 2rem;
   min-width: 20%;
 }
 
@@ -119,13 +122,13 @@
   color: #121212;
   opacity: 0.5;
   text-transform: uppercase;
-  font-size: 0.613rem;
+  font-size: 1rem;
   margin-bottom: 1px;
 }
 
 .chapter {
   margin-bottom: 1.5rem;
-  color: #121212;
+  color: #000;
   opacity: 0.8;
   font-size: 1rem;
 }
@@ -138,6 +141,7 @@
   border-radius: 3px;
   border: none;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .test {

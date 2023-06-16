@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family:
@@ -24,4 +30,10 @@ code {
     Consolas,
     'Courier New',
     monospace;
+}
+
+#root {
+  background-color: rgb(233, 232, 232);
+  height: 100vh;
+  padding: 4rem;
 }

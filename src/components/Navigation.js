@@ -16,11 +16,8 @@ function Navigation() {
           </li>
         </ul>
       </div>
-      <div className={styles.profile}>
-        {/* <Profile fontSize={35} color="blue" /> */}
-      </div>
+      <div className={styles.profile} />
     </nav>
   );
 }
-
 export default Navigation;

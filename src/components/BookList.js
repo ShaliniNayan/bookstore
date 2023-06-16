@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import Book from './Book';
 
 const BookList = ({ books }) => {
+  const bookStyle = {
+    maxHeight: '400px',
+    overflow: 'auto',
+  };
   const renderBooks = Object.entries(books).map(([id, book]) => book.map((bookItem) => {
     if (bookItem && id) {
       return <Book key={id} book={bookItem} itemId={id} />;
@@ -10,13 +14,11 @@ const BookList = ({ books }) => {
     return null;
   }));
   return (
-    <div>
-      {/* <h3>Book List</h3> */}
+    <ul style={bookStyle}>
       {renderBooks}
-    </div>
+    </ul>
   );
 };
-
 BookList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({

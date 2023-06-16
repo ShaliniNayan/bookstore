@@ -1,3 +1,9 @@
+.books {
+  padding: 3rem;
+  background-color: rgb(249 247 247);
+  flex: 1;
+}
+
 .form-hr {
   margin: 20px;
   border: solid 1px #e8e8e8;
@@ -13,20 +19,6 @@ h2 {
   color: #888;
 }
 
-.add-book {
-  display: flex;
-  flex-direction: column;
-  padding: 0.75rem;
-  gap: 10px;
-}
-
-.title {
-  min-width: 41.5rem;
-  min-height: 2.813rem;
-  margin-right: 20px;
-  border: none;
-}
-
 .author {
   min-width: 28rem;
   min-height: 2.813rem;
@@ -34,18 +26,26 @@ h2 {
   border: none;
 }
 
-.addBook {
+.form {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.8em;
+}
+
+.form-title {
+  flex: 1;
+  padding: 0.4em;
+  border: #888;
+}
+
+.form button {
+  background-color: #0290ff;
+  color: #fff;
   min-width: 11.5rem;
-  min-height: 2.813rem;
-  /* background-color: #0290ff; */
-  color: black;
+  min-height: 2.063rem;
+  border-radius: 3px;
   border: none;
   cursor: pointer;
   text-transform: uppercase;
-  border-radius: 3px;
-}
-
-::placeholder {
-  padding: 20px;
-  opacity: 0.5;
 }
