@@ -1,0 +1,39 @@
+.form-hr {
+  margin: 20px;
+  border: solid 1px #e8e8e8;
+}
+
+.add-book {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  gap: 10px;
+}
+
+.title {
+  min-width: 41.5rem;
+  min-height: 2.813rem;
+  margin-right: 20px;
+  border: none;
+}
+
+.author {
+  min-width: 28rem;
+  min-height: 2.813rem;
+  margin-right: 20px;
+  border: none;
+}
+
+.addBook {
+  min-width: 11.5rem;
+  min-height: 2.813rem;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+::placeholder {
+  padding: 20px;
+  opacity: 0.5;
+}

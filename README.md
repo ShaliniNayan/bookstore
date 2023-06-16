@@ -68,6 +68,7 @@ After you're finished please remove all the comments and instructions!
 
 > VS code
 > React
+> Redux
 
 ### Tech Stack <a name="tech-stack"></a>
 
